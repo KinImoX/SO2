@@ -11,4 +11,25 @@ package unah.so2.gestion_memoria;
  */
 public class ParticionEstatica {
     
+    private int [] arTamanioMemoria;
+    private int [] arTamanioParticion;
+    
+    public ParticionEstatica(){}
+    
+    public void asignacionMemoria(int iCantidadMemo){
+        
+        arTamanioMemoria = new int[iCantidadMemo];
+    }
+    
+    public int recursion(int iCantidadMemoria){
+        int iRecursion = iCantidadMemoria/2;
+        if(iRecursion != 1){
+            return recursion(iRecursion);
+        }
+        return iRecursion;
+    }
+
+   
+    
+    
 }
