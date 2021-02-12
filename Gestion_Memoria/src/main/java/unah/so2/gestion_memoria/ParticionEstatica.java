@@ -12,7 +12,7 @@ package unah.so2.gestion_memoria;
 public class ParticionEstatica {
     
     private int [] arTamanioMemoriaAsg;
-    private int [] arTamanioParticion;
+    private int [][] arTamanioParticion;
    
     
     public ParticionEstatica(){}
@@ -20,19 +20,50 @@ public class ParticionEstatica {
     public int asignacionParticion(int iCantidadMemo){
         int c=1;
         //Divide en modulos iguales de 8MB
-        this.arTamanioParticion = new int[iCantidadMemo/8];
-        for(int i : arTamanioParticion){
-            arTamanioParticion[i] = c++;
-            System.out.println(arTamanioParticion[i]);
-        }  
+        this.arTamanioParticion = new int[iCantidadMemo/8][8];
+        System.out.println(arTamanioParticion.length);
+        /* for(int i=0;i < iCantidadMemo/8;i++){
+            for(int j=0;j < 8;j++){
+                arTamanioParticion[i][j]=c++;
+                System.out.print(arTamanioParticion[i][j]+" ");
+            }
+            System.out.println(" ");  
+        }  */
         return iCantidadMemo/8;
+    }
+    public int[][] envioDatos(){
+        int c=1;
+        for(int i=0;i < arTamanioParticion.length ;i++){
+            
+            for(int j=0;j < 8;j++){
+                arTamanioParticion[i][j]=c++;
+                System.out.print(arTamanioParticion[i][j]+" ");
+            }
+            System.out.println(" ");  
+        } 
+        return arTamanioParticion;
+    }
+    
+    public String[] datos(){
+        int[] array;
+        String[] array2;
+        array2 = new String[8];
+        array = new int[8];
+        for(int i=0;i<8;i++){
+            array[i] = 1;
+            Integer.toString(array[i]);
+            
+            
+        }
+        return array2;
     }
     
     public void asignacionMemoria(int iTamanioProceso){
+        
         if (iTamanioProceso >= 8){
             System.out.println("Muy grande");
         }else{
-            this.arTamanioParticion[1] = iTamanioProceso;
+            this.arTamanioParticion[1][8] = iTamanioProceso;
         }
     }
 
