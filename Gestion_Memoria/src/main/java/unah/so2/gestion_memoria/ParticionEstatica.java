@@ -11,23 +11,32 @@ package unah.so2.gestion_memoria;
  */
 public class ParticionEstatica {
     
-    private int [] arTamanioMemoria;
+    private int [] arTamanioMemoriaAsg;
     private int [] arTamanioParticion;
+   
     
     public ParticionEstatica(){}
     
-    public void asignacionMemoria(int iCantidadMemo){
-        
-        arTamanioMemoria = new int[iCantidadMemo];
+    public int asignacionParticion(int iCantidadMemo){
+        int c=1;
+        //Divide en modulos iguales de 8MB
+        this.arTamanioParticion = new int[iCantidadMemo/8];
+        for(int i : arTamanioParticion){
+            arTamanioParticion[i] = c++;
+            System.out.println(arTamanioParticion[i]);
+        }  
+        return iCantidadMemo/8;
     }
     
-    public int recursion(int iCantidadMemoria){
-        int iRecursion = iCantidadMemoria/2;
-        if(iRecursion != 1){
-            return recursion(iRecursion);
+    public void asignacionMemoria(int iTamanioProceso){
+        if (iTamanioProceso >= 8){
+            System.out.println("Muy grande");
+        }else{
+            this.arTamanioParticion[1] = iTamanioProceso;
         }
-        return iRecursion;
     }
+
+    
 
    
     
