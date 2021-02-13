@@ -18,30 +18,27 @@ public class ParticionEstatica {
     public ParticionEstatica(){}
     
     public int asignacionParticion(int iCantidadMemo){
-        int c=1;
         //Divide en modulos iguales de 8MB
-        this.arTamanioParticion = new int[iCantidadMemo/8][8];
-        System.out.println(arTamanioParticion.length);
-        /* for(int i=0;i < iCantidadMemo/8;i++){
-            for(int j=0;j < 8;j++){
-                arTamanioParticion[i][j]=c++;
-                System.out.print(arTamanioParticion[i][j]+" ");
-            }
-            System.out.println(" ");  
-        }  */
+        this.arTamanioParticion = new int[8][iCantidadMemo/8];
         return iCantidadMemo/8;
     }
-    public int[][] envioDatos(){
+    public int[][] envioDatos(int iParticiones, int iTamanioProceso){
         int c=1;
-        for(int i=0;i < arTamanioParticion.length ;i++){
+        
+        if(iTamanioProceso <= 8){
             
-            for(int j=0;j < 8;j++){
-                arTamanioParticion[i][j]=c++;
-                System.out.print(arTamanioParticion[i][j]+" ");
+            for(int i=0;i < iTamanioProceso ;i++){
+                //for(int j=0;j < iParticiones ;j++){
+                    arTamanioParticion[i][0]=c++;
+                    System.out.print(arTamanioParticion[i][0]+" ");
+                //}
+                System.out.println(" ");  
+            } 
+            for(int i=0;i < 8 ;i++){
+                System.out.print(arTamanioParticion[i][0]+" ");
             }
-            System.out.println(" ");  
-        } 
-        return arTamanioParticion;
+          
+        }   return arTamanioParticion;
     }
     
     public String[] datos(){

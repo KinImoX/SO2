@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paginacion;
+package unah.so2.gestion_memoria;
 
 /**
  *
- * @author Bryan Martinez, Demsey Euceda, Freddy, Karen Bautista
+ @author Bryan Martinez, Demsey Euceda, Freddy, Karen Bautista
  */
 public class ParticionTamanioVariable {
 
@@ -47,7 +47,7 @@ public class ParticionTamanioVariable {
 		return segmentos;
 	}
 
-	public void orden(Proceso proceso, int iCantidadMemoria) {
+	public void orden(Procesos proceso, int iCantidadMemoria) {
 		int tamanio = proceso.getTamanio();
 		int i;
 		segmento(iCantidadMemoria);
